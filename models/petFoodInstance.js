@@ -5,7 +5,11 @@ const Schema = mongoose.Schema;
 const PetFoodInstance = new Schema(
 	{
 		name: { type: String, required: true },
-		animal_type: { type: Schema.Types.ObjectId, required: true },
+		animal_type: {
+			type: Schema.Types.ObjectId,
+			ref: "PetFoodCategory",
+			required: true,
+		},
 		in_stock: { type: Number, required: true },
 		price: { type: Number, required: true },
 	},

@@ -62,3 +62,6 @@ typings/
 
 # file with credentials for db connection
 util/credentials.js
+
+# file that populates the db with test data
+populateDB.js

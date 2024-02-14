@@ -24,3 +24,5 @@ const PetFoodInstance = new Schema(
 		},
 	}
 );
+
+module.exports = mongoose.model("PetFoodInstance", PetFoodInstance);

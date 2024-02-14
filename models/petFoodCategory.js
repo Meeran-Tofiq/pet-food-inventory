@@ -21,3 +21,5 @@ const PetFoodCategory = new Schema(
 		},
 	}
 );
+
+module.exports = mongoose.model("PetFoodCategory", PetFoodCategory);

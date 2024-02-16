@@ -1,10 +1,6 @@
 const PetFoodCategory = require("../models/petFoodCategory");
 const asyncHandler = require("express-async-handler");
 
-exports.index = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
-});
-
 exports.pet_food_category_list = asyncHandler(async (req, res, next) => {
 	res.send("NOT IMPLEMENTED YET");
 });

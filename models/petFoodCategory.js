@@ -10,7 +10,7 @@ const PetFoodCategory = new Schema(
 		virtuals: {
 			url: {
 				get() {
-					return "/animals/" + this.animal_type;
+					return "/animals/" + this._id;
 				},
 			},
 			image: {

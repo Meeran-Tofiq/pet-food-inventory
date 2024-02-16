@@ -7,7 +7,7 @@ const petFoodInstanceController = require("../controllers/petFoodInstanceControl
 
 // category routes
 
-router.get("", petFoodCategoryController.pet_food_category_list);
+router.get("/", petFoodCategoryController.pet_food_category_list);
 
 router.get("/create", petFoodCategoryController.pet_food_category_create_get);
 

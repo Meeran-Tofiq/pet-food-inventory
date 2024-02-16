@@ -4,4 +4,21 @@ html
     title= title + ' | Petter'
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header 
+      div(class="image-container")
+        img(href='/images/logo.png', alt="Logo for Petter company")
+      nav 
+        ul 
+          li 
+            a(href="/") Home
+          li 
+            a(href="/animals") Animals 
+          li 
+            a(href="/about-us") About Us
+    
+    main 
+      block content
+    
+    footer 
+      p Made by 
+        a(href="https://github.com/Meeran-Tofiq") Meeran Tofiq

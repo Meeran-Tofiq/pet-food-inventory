@@ -71,6 +71,17 @@ main .home {
 	background-image: url("/images/okeykat-w6elADh_jww-unsplash.jpg");
 }
 
+main .home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 15rem;
+
+	font-size: 35px;
+	color: white;
+	text-shadow: 2px 2px 1px black;
+}
+
 footer {
 	display: flex;
 	font-size: 1.2em;

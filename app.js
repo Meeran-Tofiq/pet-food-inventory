@@ -3,11 +3,17 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const mongoDB = require("./util/credentials");
 
 var indexRouter = require("./routes/index");
 var animalsRouter = require("./routes/animals");
 
 var app = express();
+
+main().catch((err) => console.log(err));
+async function main() {
+	await mongoose.connect(mongoDB);
+}
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

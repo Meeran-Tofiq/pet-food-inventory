@@ -67,7 +67,7 @@ main {
 	flex: 1;
 }
 
-main .home {
+main .with-background {
 	height: 100%;
 	background-image: url("/images/okeykat-w6elADh_jww-unsplash.jpg");
 	background-size: 100%;

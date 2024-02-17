@@ -1,0 +1,6 @@
+extends layout 
+
+block content 
+  div(class="animals-list with-background")
+    each category in categoriesList
+      li #{category.animal_type}

@@ -14,61 +14,64 @@ router.get("/create", petFoodCategoryController.pet_food_category_create_get);
 router.post("/create", petFoodCategoryController.pet_food_category_create_post);
 
 router.get(
-	"/:id/update",
+	"/:category_id/update",
 	petFoodCategoryController.pet_food_category_update_get
 );
 
 router.post(
-	"/:id/update",
+	"/:category_id/update",
 	petFoodCategoryController.pet_food_category_update_post
 );
 
 router.get(
-	"/:id/delete",
+	"/:category_id/delete",
 	petFoodCategoryController.pet_food_category_delete_get
 );
 
 router.post(
-	"/:id/delete",
+	"/:category_id/delete",
 	petFoodCategoryController.pet_food_category_delete_post
 );
 
 // instance routes
 
-router.get("/:id/pet_foods", petFoodInstanceController.pet_food_instance_list);
+router.get(
+	"/:category_id/pet_foods",
+	petFoodInstanceController.pet_food_instance_list
+);
 
 router.get(
-	"/:id/create",
+	"/:category_id/pet_foods/create",
 	petFoodInstanceController.pet_food_instance_create_get
 );
 
 router.post(
-	"/:id/create",
+	"/:category_id/pet_foods/create",
 	petFoodInstanceController.pet_food_instance_create_post
 );
 
 router.get(
-	"/:id/:instance_id",
+	"/:category_id/pet_foods/:instance_id",
 	petFoodInstanceController.pet_food_instance_details
 );
 
 router.get(
-	"/:id/:instance_id/update",
+	"/:category_id/pet_foods/:instance_id/update",
 	petFoodInstanceController.pet_food_instance_update_get
 );
 
 router.post(
-	"/:id/:instance_id/update",
+	"/:category_id/pet_foods/:instance_id/update",
 	petFoodInstanceController.pet_food_instance_update_post
 );
 
 router.get(
-	"/:id/:instance_id/delete",
+	"/:category_id/pet_foods/:instance_id/delete",
 	petFoodInstanceController.pet_food_instance_delete_get
 );
 
 router.post(
-	"/:id/:instance_id/delete",
+	"/:category_id/pet_foods/:instance_id/delete",
 	petFoodInstanceController.pet_food_instance_delete_post
 );
 

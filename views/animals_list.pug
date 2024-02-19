@@ -2,5 +2,9 @@ extends layout
 
 block content 
   div(class="animals-list with-background")
-    each category in categoriesList
-      li #{category.animal_type}
+    ul
+      each category in categoriesList
+        li(class="animal-type")
+          div(class="image-container")
+            img(src=category.image)
+          a(href=category.url) #{category.animal_type}

@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+  div(class="pet-foods-list with-background")
+    h1= title 
+    ul 
+      each food in petFoodInstances
+        li 
+          div(class="pet-food-card")
+            a(href=food.url)
+              h2= food.name
+              span(class="price")= food.price
+              span(class="in-stock")= food.in_stock
+              

@@ -1,0 +1,30 @@
+extends layout 
+
+block content 
+  div.create-page.with-background
+    h1= title
+
+    div.form-container
+      form(method="POST") 
+        label(for="name") Name: 
+        input#name.form-control(type="text" placeholder="Name of pet food brand..." name="name" requied value=(petFood ? petFood.name : ''))
+
+        label(for="animal_type") Animal: 
+        select#animal_type.form-control(required name="animal_type")
+          option(value='') --Please select an Animal--
+          for animal in animals_list 
+            if petFood && animal._id.toString() === petFood.animal_type._id.toString()
+              option(value=animal.animal_type selected) #{animal.animal_type}
+            else 
+              option(value=animal.animal_type) #{animal.animal_type}
+
+        label(for="in_stock") In Stock: 
+        input#in_stock.form-control(type="number" placeholder="How much is in stock..." name="in_stock" requied value=(petFood ? petFood.in_stock : ''))
+
+        label(for="price") Price: 
+        input#price.form-control(type="number" placeholder="Price of the product..." name="price" requied value=(petFood ? petFood.price : ''))
+        button(type="submit") Submit 
+    if(errors)
+      ul
+        each error in errors 
+          li!= error.message

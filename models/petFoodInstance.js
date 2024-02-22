@@ -18,7 +18,10 @@ const PetFoodInstance = new Schema(
 			url: {
 				get() {
 					return (
-						"/animals/" + this.animal_type + "/pet_foods" + this._id
+						"/animals/" +
+						this.animal_type +
+						"/pet_foods/" +
+						this._id
 					);
 				},
 			},

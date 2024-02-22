@@ -4,8 +4,8 @@ block content
   div.create-page.with-background
     h1= title
 
-    div.create-form
-      form(action="POST") 
+    div.form-container
+      form(method="POST") 
         label(for="aniaml_type") Animal: 
         input#animal_type.form-control(type="text" placeholder="Dog, Cat, Mouse, etc..." name="animal_type" requied value=(category ? category.animal-type : ''))
         button(type="submit") Submit 

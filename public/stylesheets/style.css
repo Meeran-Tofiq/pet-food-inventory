@@ -137,7 +137,12 @@ main li {
 	box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-li.animal-type a {
+main li.create-new {
+	align-items: center;
+	font-size: 100px;
+}
+
+main li a {
 	text-decoration: none;
 	color: #546bec;
 }

@@ -23,12 +23,19 @@ exports.pet_food_instance_list = asyncHandler(async (req, res, next) => {
 });
 
 exports.pet_food_instance_details = asyncHandler(async (req, res, next) => {
+	res.send("NOT IMPLEMENTED YET");
+});
+
+exports.pet_food_instance_create_get = asyncHandler(async (req, res, next) => {
+	const animalsList = await petFoodCategory.find({}).exec();
+
 	res.render("pet_food_form", {
 		title: "Create Pet Food",
+		animalsList,
 	});
 });
 
-exports.pet_food_instance_create_get = [
+exports.pet_food_instance_create_post = [
 	body("name", "Name must have at least 3 characters")
 		.trim()
 		.isLength(3)
@@ -46,13 +53,30 @@ exports.pet_food_instance_create_get = [
 		.isLength({ min: 1 })
 		.escape(),
 	asyncHandler(async (req, res, next) => {
-		res.send("NOT IMPLEMENTED YET");
+		const errors = validationResult(req);
+		const petFood = new PetFoodInstance({
+			name: req.body.name,
+			animal_type: req.body.animal_type,
+			in_stock: req.body.in_stock,
+			price: req.body.price,
+		});
+
+		if (!errors.isEmpty()) {
+			const animalsList = await petFoodCategory.find({}).exec();
+
+			res.render("pet_food_form", {
+				title: "Create Pet Food",
+				animalsList,
+				petFood,
+				errors: errors.array(),
+			});
+			return;
+		}
+
+		await petFood.save();
+		res.redirect(petFood.url);
 	}),
 ];
-
-exports.pet_food_instance_create_post = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
-});
 
 exports.pet_food_instance_update_get = asyncHandler(async (req, res, next) => {
 	res.send("NOT IMPLEMENTED YET");

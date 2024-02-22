@@ -20,7 +20,7 @@ exports.pet_food_category_create_get = asyncHandler(async (req, res, next) => {
 exports.pet_food_category_create_post = [
 	body("animal_type", "Animal type must contain at least 3 characters.")
 		.trim()
-		.isLength(3)
+		.isLength({ min: 3 })
 		.escape(),
 	asyncHandler(async (req, res, next) => {
 		const errors = validationResult(req);
@@ -29,6 +29,7 @@ exports.pet_food_category_create_post = [
 		});
 
 		if (!errors.isEmpty()) {
+			console.log(category);
 			res.render("category_form", {
 				title: "Create Category",
 				category,

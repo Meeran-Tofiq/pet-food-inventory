@@ -1,6 +1,7 @@
 const petFoodCategory = require("../models/petFoodCategory");
 const PetFoodInstance = require("../models/petFoodInstance");
 const asyncHandler = require("express-async-handler");
+const { body, validationResult } = require("express-validator");
 
 exports.pet_food_instance_list = asyncHandler(async (req, res, next) => {
 	const [category, petFoodInstances] = await Promise.all([
@@ -22,7 +23,9 @@ exports.pet_food_instance_list = asyncHandler(async (req, res, next) => {
 });
 
 exports.pet_food_instance_details = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
+	res.render("pet_food_form", {
+		title: "Create Pet Food",
+	});
 });
 
 exports.pet_food_instance_create_get = asyncHandler(async (req, res, next) => {

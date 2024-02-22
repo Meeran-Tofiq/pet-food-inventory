@@ -12,7 +12,7 @@ block content
         label(for="animal_type") Animal: 
         select#animal_type.form-control(required name="animal_type")
           option(value='') --Please select an Animal--
-          for animal in animals_list 
+          for animal in animalsList 
             if petFood && animal._id.toString() === petFood.animal_type._id.toString()
               option(value=animal.animal_type selected) #{animal.animal_type}
             else 

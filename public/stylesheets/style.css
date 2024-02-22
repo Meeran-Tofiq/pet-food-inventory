@@ -90,6 +90,22 @@ main .animals-list {
 	align-items: center;
 }
 
+main .pet-foods-list h1 {
+	margin: 0;
+	margin-left: 2%;
+	padding-top: 2%;
+	color: white;
+	text-shadow: 3px 3px 1px black;
+}
+
+main .pet-food-card {
+	font-size: x-large;
+}
+
+main .pet-food-card h4 {
+	margin: 0;
+}
+
 main ul {
 	margin: 0;
 	list-style: none;
@@ -105,7 +121,7 @@ main .animals-list ul {
 	height: 100%;
 }
 
-li.animal-type {
+main li {
 	width: 300px;
 	height: 20%;
 	padding: 20px 0;

@@ -28,9 +28,27 @@ exports.pet_food_instance_details = asyncHandler(async (req, res, next) => {
 	});
 });
 
-exports.pet_food_instance_create_get = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
-});
+exports.pet_food_instance_create_get = [
+	body("name", "Name must have at least 3 characters")
+		.trim()
+		.isLength(3)
+		.escape(),
+	body("animal_type", "Animal must not be empty")
+		.trim()
+		.isLength({ min: 1 })
+		.escape(),
+	body("in_stock", "Stock must be a valid number")
+		.trim()
+		.isLength({ min: 1 })
+		.escape(),
+	body("price", "Price must not be empty")
+		.trim()
+		.isLength({ min: 1 })
+		.escape(),
+	asyncHandler(async (req, res, next) => {
+		res.send("NOT IMPLEMENTED YET");
+	}),
+];
 
 exports.pet_food_instance_create_post = asyncHandler(async (req, res, next) => {
 	res.send("NOT IMPLEMENTED YET");

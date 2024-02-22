@@ -25,6 +25,6 @@ block content
         input#price.form-control(type="number" placeholder="Price of the product..." name="price" requied value=(petFood ? petFood.price : ''))
         button(type="submit") Submit 
     if(errors)
-      ul
+      ul.errors
         each error in errors 
-          li!= error.message
+          li!= error.msg

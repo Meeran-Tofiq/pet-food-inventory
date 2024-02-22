@@ -17,7 +17,9 @@ const PetFoodInstance = new Schema(
 		virtuals: {
 			url: {
 				get() {
-					return "/animals/" + this.animal_type + "/" + this._id;
+					return (
+						"/animals/" + this.animal_type + "/pet_foods" + this._id
+					);
 				},
 			},
 			isAvailable: {

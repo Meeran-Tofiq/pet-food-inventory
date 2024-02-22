@@ -24,7 +24,7 @@ exports.pet_food_category_create_post = [
 		.escape(),
 	asyncHandler(async (req, res, next) => {
 		const errors = validationResult(req);
-		const category = new petFoodCategory({
+		const category = new PetFoodCategory({
 			animal_type: req.body.animal_type,
 		});
 
@@ -32,7 +32,7 @@ exports.pet_food_category_create_post = [
 			res.render("category_form", {
 				title: "Create Category",
 				category,
-				errors,
+				errors: errors.array(),
 			});
 			return;
 		}

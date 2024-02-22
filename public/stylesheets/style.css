@@ -88,9 +88,9 @@ main .animals-list ul {
 }
 
 main li {
-	width: 300px;
-	height: 20%;
-	padding: 20px 0;
+	width: fit-content;
+	height: fit-content;
+	padding: 20px;
 
 	display: flex;
 	justify-content: center;
@@ -175,6 +175,10 @@ main .form-container input.form-control {
 	border: 2px solid black;
 	border-radius: 10px;
 	padding: 1rem;
+}
+
+main .errors li {
+	font-size: medium;
 }
 
 .form-container button {

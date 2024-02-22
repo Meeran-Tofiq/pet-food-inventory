@@ -144,6 +144,17 @@ main li.create-new {
 	font-size: 100px;
 }
 
+main .create-page {
+	width: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+main .create-page .form-container {
+	justify-self: center;
+	align-self: center;
+}
+
 main .form-container {
 	background-color: white;
 	border-radius: 15px;

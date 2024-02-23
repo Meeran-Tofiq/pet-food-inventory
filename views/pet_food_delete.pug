@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+  div.with-background
+    p #[strong Are you sure you want to delete this pet food?]
+
+    form(method='POST')
+      div
+        input(type='hidden', name='pet_food_id', value=petFood._id )
+
+        button(type='submit') Delete

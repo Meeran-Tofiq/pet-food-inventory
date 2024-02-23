@@ -145,14 +145,16 @@ main li.create-new {
 }
 
 main .create-page,
-main .pet-food-detail {
+main .pet-food-detail,
+main .delete-page {
 	width: 100%;
 	display: grid;
 	grid-template-rows: auto 1fr;
 }
 
 main .create-page .form-container,
-main .pet-food-detail .pet-food-detail-card {
+main .pet-food-detail .pet-food-detail-card,
+main .delete-page .delete-card {
 	justify-self: center;
 	align-self: center;
 	background-color: white;
@@ -190,8 +192,12 @@ main .errors li {
 .form-container button {
 	background-color: transparent;
 	border: none;
-	font-size: large;
+	font-size: larger;
+	font-weight: 700;
+	margin-top: 1rem;
 	color: #e0a9eb;
+
+	cursor: pointer;
 }
 
 footer {

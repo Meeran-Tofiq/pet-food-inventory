@@ -1,23 +1,23 @@
 extends layout 
 
 block content 
-  div.with-background
+  div.delete-page.with-background
     h1= title + ": " + category.animal_type
-
-    if petFoodList.length 
-      p #[strong Delete the following pet foods before deleting this category.]
-      div 
-        dl 
-          each petFood in petFoodList 
-            dt 
-              a(href= petFood.url)= petFood.name 
     
-    else 
-      p #[strong Are you sure you want to delete this category?]
+    div.delete-card
+      if petFoodList.length 
+        p #[strong Delete the following pet foods before deleting this category.]
+        div 
+          dl 
+            each petFood in petFoodList 
+              dt 
+                a(href= petFood.url)= petFood.name 
+    
+      else 
+        p #[strong Are you sure you want to delete this category?]
 
-      form(method='POST')
-        div
-          input(type='hidden', name='category_id', value=category._id )
-
-        button(type='submit') Delete
+        div.form-container
+          form(method='POST')
+            input(type='hidden', name='category_id', value=category._id )
+            button(type='submit') Delete
             

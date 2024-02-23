@@ -121,6 +121,6 @@ exports.pet_food_category_delete_post = asyncHandler(async (req, res, next) => {
 		return;
 	}
 
-	await PetFoodCategory.findByIdAndDelete(req.body.category_id);
+	await PetFoodCategory.findByIdAndDelete(req.body.category_id).exec();
 	res.redirect("/animals");
 });

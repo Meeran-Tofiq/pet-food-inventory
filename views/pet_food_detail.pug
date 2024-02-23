@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+  div.pet-food-detail.with-background
+    div.pet-food-detail-card
+      h1= title + ' Details'
+      span.animal-type= "For animals of type: " + petFood.animal_type.animal_type
+      span.price= "Price: $" + petFood.price 
+      span.in-stock= "Left in stock: " + petFood.in_stock

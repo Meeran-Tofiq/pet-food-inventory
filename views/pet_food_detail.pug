@@ -4,8 +4,9 @@ block content
   div.pet-food-detail.with-background
     div 
       h1= title + ' Details'
-      a(href= petFood._id + '/update') Edit 
-      a(href= petFood._id + '/delete') Delete 
+      div.control-buttons
+        a(href= petFood._id + '/update') Edit 
+        a(href= petFood._id + '/delete') Delete 
     div.pet-food-detail-card
       span.animal-type= "For animals of type: " + petFood.category.animal_type
       span.price= "Price: $" + petFood.price 

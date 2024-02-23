@@ -144,24 +144,28 @@ main li.create-new {
 	font-size: 100px;
 }
 
-main .create-page {
+main .create-page,
+main .pet-food-detail {
 	width: 100%;
 	display: grid;
 	grid-template-rows: auto 1fr;
 }
 
-main .create-page .form-container {
+main .create-page .form-container,
+main .pet-food-detail .pet-food-detail-card {
 	justify-self: center;
 	align-self: center;
-}
-
-main .form-container {
 	background-color: white;
 	border-radius: 15px;
 	border: 4px solid #e0a9eb;
 
 	padding: 20px;
 	width: fit-content;
+}
+
+main .pet-food-detail .pet-food-detail-card {
+	display: flex;
+	flex-direction: column;
 }
 
 .form-container form {

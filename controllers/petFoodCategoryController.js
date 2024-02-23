@@ -1,4 +1,5 @@
 const PetFoodCategory = require("../models/petFoodCategory");
+const PetFoodInstance = require("../models/petFoodInstance");
 const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
 
@@ -83,7 +84,21 @@ exports.pet_food_category_update_post = [
 ];
 
 exports.pet_food_category_delete_get = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
+	const [category, petFoodList] = await Promise.all([
+		PetFoodCategory.findById(req.params.category_id).exec(),
+		PetFoodInstance.find({ animal_type: req.params.category_id }).exec(),
+	]);
+
+	if (!category) {
+		res.redirect("/animals");
+		return;
+	}
+
+	res.render("category_delete", {
+		title: "Delete Category",
+		category,
+		petFoodList,
+	});
 });
 
 exports.pet_food_category_delete_post = asyncHandler(async (req, res, next) => {

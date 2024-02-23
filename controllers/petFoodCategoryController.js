@@ -44,12 +44,43 @@ exports.pet_food_category_create_post = [
 ];
 
 exports.pet_food_category_update_get = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
+	const category = await PetFoodCategory.findById(req.params.category_id);
+
+	res.render("category_form", {
+		title: "Update Category",
+		category,
+	});
 });
 
-exports.pet_food_category_update_post = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
-});
+exports.pet_food_category_update_post = [
+	body("animal_type", "Animal type must contain at least 3 characters.")
+		.trim()
+		.isLength({ min: 3 })
+		.escape(),
+	asyncHandler(async (req, res, next) => {
+		const errors = validationResult(req);
+		const category = new PetFoodCategory({
+			animal_type: req.body.animal_type,
+			_id: req.params.category_id,
+		});
+
+		if (!errors.isEmpty()) {
+			res.render("category_form", {
+				title: "Update Category",
+				category,
+				errors: errors.array(),
+			});
+			return;
+		}
+
+		await PetFoodCategory.findByIdAndUpdate(
+			req.params.category_id,
+			category,
+			{}
+		);
+		res.redirect(category.url);
+	}),
+];
 
 exports.pet_food_category_delete_get = asyncHandler(async (req, res, next) => {
 	res.send("NOT IMPLEMENTED YET");

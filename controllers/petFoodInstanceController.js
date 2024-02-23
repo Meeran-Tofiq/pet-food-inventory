@@ -23,7 +23,11 @@ exports.pet_food_instance_list = asyncHandler(async (req, res, next) => {
 });
 
 exports.pet_food_instance_details = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
+	const petFood = await PetFoodInstance.findById(req.params.instance_id)
+		.populate("animal_type")
+		.exec();
+
+	res.render("pet_food_detail", { title: petFood.name, petFood });
 });
 
 exports.pet_food_instance_create_get = asyncHandler(async (req, res, next) => {

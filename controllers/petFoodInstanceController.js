@@ -65,6 +65,11 @@ exports.pet_food_instance_create_post = [
 			price: req.body.price,
 		});
 
+		if (!petFood) {
+			res.redirect("/animals");
+			return;
+		}
+
 		if (!errors.isEmpty()) {
 			const animalsList = await petFoodCategory.find({}).exec();
 
@@ -88,7 +93,10 @@ exports.pet_food_instance_update_get = asyncHandler(async (req, res, next) => {
 		petFoodCategory.find({}).exec(),
 	]);
 
-	console.log(petFood);
+	if (!petFood) {
+		res.redirect("/animals");
+		return;
+	}
 
 	res.render("pet_food_form", {
 		title: "Update Pet Food",

@@ -47,6 +47,11 @@ exports.pet_food_category_create_post = [
 exports.pet_food_category_update_get = asyncHandler(async (req, res, next) => {
 	const category = await PetFoodCategory.findById(req.params.category_id);
 
+	if (!category) {
+		res.redirect("/animals");
+		return;
+	}
+
 	res.render("category_form", {
 		title: "Update Category",
 		category,

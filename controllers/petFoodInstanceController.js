@@ -83,7 +83,18 @@ exports.pet_food_instance_create_post = [
 ];
 
 exports.pet_food_instance_update_get = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
+	const [petFood, animalsList] = await Promise.all([
+		PetFoodInstance.findById(req.params.instance_id).exec(),
+		petFoodCategory.find({}).exec(),
+	]);
+
+	console.log(petFood);
+
+	res.render("pet_food_form", {
+		title: "Update Pet Food",
+		petFood,
+		animalsList,
+	});
 });
 
 exports.pet_food_instance_update_post = asyncHandler(async (req, res, next) => {

@@ -7,13 +7,10 @@ exports.pet_food_instance_list = asyncHandler(async (req, res, next) => {
 	const [category, petFoodInstances] = await Promise.all([
 		petFoodCategory.findById(req.params.category_id).exec(),
 		PetFoodInstance.find({
-			animal_type: req.params.category_id,
-		})
-			.populate()
-			.exec(),
+			category: req.params.category_id,
+		}).exec(),
 	]);
 
-	console.log("category is " + category.animal_type);
 	const animalType = category.animal_type;
 
 	res.render("pet_food_list", {
@@ -24,7 +21,7 @@ exports.pet_food_instance_list = asyncHandler(async (req, res, next) => {
 
 exports.pet_food_instance_details = asyncHandler(async (req, res, next) => {
 	const petFood = await PetFoodInstance.findById(req.params.instance_id)
-		.populate("animal_type")
+		.populate("category")
 		.exec();
 
 	res.render("pet_food_detail", { title: petFood.name, petFood });
@@ -44,7 +41,7 @@ exports.pet_food_instance_create_post = [
 		.trim()
 		.isLength(3)
 		.escape(),
-	body("animal_type", "Animal must not be empty")
+	body("category", "Animal must not be empty")
 		.trim()
 		.isLength({ min: 1 })
 		.escape(),
@@ -60,7 +57,7 @@ exports.pet_food_instance_create_post = [
 		const errors = validationResult(req);
 		const petFood = new PetFoodInstance({
 			name: req.body.name,
-			animal_type: req.body.animal_type,
+			category: req.body.category,
 			in_stock: req.body.in_stock,
 			price: req.body.price,
 		});
@@ -110,7 +107,7 @@ exports.pet_food_instance_update_post = [
 		.trim()
 		.isLength(3)
 		.escape(),
-	body("animal_type", "Animal must not be empty")
+	body("category", "Animal must not be empty")
 		.trim()
 		.isLength({ min: 1 })
 		.escape(),
@@ -126,7 +123,7 @@ exports.pet_food_instance_update_post = [
 		const errors = validationResult(req);
 		const petFood = new PetFoodInstance({
 			name: req.body.name,
-			animal_type: req.body.animal_type,
+			category: req.body.category,
 			in_stock: req.body.in_stock,
 			price: req.body.price,
 			_id: req.params.instance_id,

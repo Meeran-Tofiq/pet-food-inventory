@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const PetFoodInstance = new Schema(
 	{
 		name: { type: String, required: true },
-		animal_type: {
+		category: {
 			type: Schema.Types.ObjectId,
 			ref: "PetFoodCategory",
 			required: true,

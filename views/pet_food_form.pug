@@ -10,10 +10,10 @@ block content
         input#name.form-control(type="text" placeholder="Name of pet food brand..." name="name" requied value=(petFood ? petFood.name : ''))
 
         label(for="animal_type") Animal: 
-        select#animal_type.form-control(required name="animal_type")
+        select#animal_type.form-control(required name="category")
           option(value='') --Please select an Animal--
           for animal in animalsList 
-            if petFood && animal._id.toString() === petFood.animal_type.toString()
+            if petFood && animal._id.toString() === petFood.category.toString()
               option(value=animal._id selected) #{animal.animal_type}
             else 
               option(value=animal._id) #{animal.animal_type}

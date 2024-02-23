@@ -162,5 +162,15 @@ exports.pet_food_instance_delete_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.pet_food_instance_delete_post = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
+	const petFood = await PetFoodInstance.findById(
+		req.params.instance_id
+	).exec();
+
+	if (!petFood) {
+		res.redirect("/animals");
+		return;
+	}
+
+	await PetFoodInstance.findByIdAndDelete(req.body.pet_food_id).exec();
+	res.redirect("../");
 });

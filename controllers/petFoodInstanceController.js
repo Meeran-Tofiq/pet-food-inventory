@@ -146,7 +146,19 @@ exports.pet_food_instance_update_post = [
 ];
 
 exports.pet_food_instance_delete_get = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED YET");
+	const petFood = await PetFoodInstance.findById(
+		req.params.instance_id
+	).exec();
+
+	if (!petFood) {
+		res.redirect("/animals");
+		return;
+	}
+
+	res.render("pet_food_delete", {
+		title: "Delete Pet Food",
+		petFood,
+	});
 });
 
 exports.pet_food_instance_delete_post = asyncHandler(async (req, res, next) => {

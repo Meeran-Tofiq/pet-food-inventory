@@ -13,9 +13,9 @@ const PetFoodCategory = new Schema(
 					return "/animals/" + this._id + "/pet_foods";
 				},
 			},
-			image: {
+			imageUrl: {
 				get() {
-					return "";
+					return `/images/animals/${this.animal_type}.jpg`;
 				},
 			},
 		},

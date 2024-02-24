@@ -12,6 +12,7 @@ const PetFoodInstance = new Schema(
 		},
 		in_stock: { type: Number, required: true },
 		price: { type: Number, required: true },
+		imageUrl: { type: String, required: true },
 	},
 	{
 		virtuals: {
@@ -28,11 +29,6 @@ const PetFoodInstance = new Schema(
 			isAvailable: {
 				get() {
 					return this.in_stock > 0;
-				},
-			},
-			imageUrl: {
-				get() {
-					return `/images/pet-food/${this.name}.jpg`;
 				},
 			},
 		},

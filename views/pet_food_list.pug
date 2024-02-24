@@ -11,8 +11,9 @@ block content
         li 
           div(class="pet-food-card")
             a(href=food.url)
+              div.image-container(style=`background-image: url("${food.imageUrl}")`)
               h4= food.name
-              span(class="price")= food.price
+              span(class="price")= "$" + food.price
               span(class="in-stock")= food.in_stock
       li(class="create-new") 
         a(href="./pet_foods/create") +

@@ -55,7 +55,7 @@ exports.pet_food_category_create_post = [
 		}
 
 		await category.save();
-		res.redirect(category.url);
+		res.redirect("/animals");
 	}),
 ];
 

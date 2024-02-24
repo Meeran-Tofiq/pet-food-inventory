@@ -4,8 +4,8 @@ block content
   div(class="pet-foods-list with-background")
     h1= title 
     div.control-buttons
-      a(href='./update') Edit 
-      a(href='./delete') Delete
+      a(href=category.url + '/update') Edit 
+      a(href=category.url + '/delete') Delete
     ul 
       each food in petFoodInstances
         li 

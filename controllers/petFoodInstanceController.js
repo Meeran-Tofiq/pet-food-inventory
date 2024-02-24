@@ -26,6 +26,7 @@ exports.pet_food_instance_list = asyncHandler(async (req, res, next) => {
 
 	res.render("pet_food_list", {
 		title: `${animalType} Food List`,
+		category,
 		petFoodInstances,
 	});
 });

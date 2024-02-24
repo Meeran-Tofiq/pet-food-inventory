@@ -110,7 +110,7 @@ main li a {
 
 main .with-background {
 	height: 100%;
-	background-image: url("/images/okeykat-w6elADh_jww-unsplash.jpg");
+	background-image: url("/images/background.jpg");
 	background-size: 100%;
 }
 
@@ -123,6 +123,12 @@ main .home {
 	font-size: 35px;
 	color: white;
 	text-shadow: 2px 2px 1px black;
+}
+
+main .control-buttons {
+	display: flex;
+	gap: 1rem;
+	margin-left: 2%;
 }
 
 main .animals-list {

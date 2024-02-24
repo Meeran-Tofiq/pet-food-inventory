@@ -6,7 +6,7 @@ block content
       each category in categoriesList
         li(class="animal-type")
           div(class="image-container")
-            img(src=category.image)
+            img(src=category.imageUrl)
           a(href=category.url) #{category.animal_type}
       li(class="create-new") 
         a(href="/animals/create") +

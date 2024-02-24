@@ -30,6 +30,11 @@ const PetFoodInstance = new Schema(
 					return this.in_stock > 0;
 				},
 			},
+			imageUrl: {
+				get() {
+					return `/images/pet-food/${this.name}.jpg`;
+				},
+			},
 		},
 	}
 );

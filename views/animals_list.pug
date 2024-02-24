@@ -5,8 +5,8 @@ block content
     ul
       each category in categoriesList
         li(class="animal-type")
-          div(class="image-container")
-            img(src=category.imageUrl)
-          a(href=category.url) #{category.animal_type}
+          a(href=category.url)
+            div(class="image-container" style=`background-image: url("${category.imageUrl}")`)
+            p #{category.animal_type}
       li(class="create-new") 
         a(href="/animals/create") +

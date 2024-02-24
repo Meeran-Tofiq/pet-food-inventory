@@ -119,7 +119,7 @@ exports.pet_food_category_update_post = [
 exports.pet_food_category_delete_get = asyncHandler(async (req, res, next) => {
 	const [category, petFoodList] = await Promise.all([
 		PetFoodCategory.findById(req.params.category_id).exec(),
-		PetFoodInstance.find({ animal_type: req.params.category_id }).exec(),
+		PetFoodInstance.find({ category: req.params.category_id }).exec(),
 	]);
 
 	if (!category) {
@@ -137,7 +137,7 @@ exports.pet_food_category_delete_get = asyncHandler(async (req, res, next) => {
 exports.pet_food_category_delete_post = asyncHandler(async (req, res, next) => {
 	const [category, petFoodList] = await Promise.all([
 		PetFoodCategory.findById(req.params.category_id).exec(),
-		PetFoodInstance.find({ animal_type: req.params.category_id }).exec(),
+		PetFoodInstance.find({ category: req.params.category_id }).exec(),
 	]);
 
 	if (!category) {

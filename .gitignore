@@ -65,3 +65,7 @@ util/credentials.js
 
 # file that populates the db with test data
 populateDB.js
+
+# user inputted images
+/public/images/animals
+/public/images/pet-food

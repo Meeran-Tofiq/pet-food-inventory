@@ -88,13 +88,14 @@ main .animals-list ul {
 }
 
 main li {
-	width: 15rem;
-	height: 20%;
+	width: 17rem;
+	height: fit-content;
 	padding: 20px;
 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 
 	font-size: xx-large;
 	background-color: white;
@@ -106,6 +107,11 @@ main li {
 main li a {
 	text-decoration: none;
 	color: #546bec;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 main .with-background {
@@ -114,9 +120,16 @@ main .with-background {
 	background-size: 100%;
 }
 
-main li.image-container {
-	width: 50%;
-	height: 50%;
+main li .image-container {
+	width: 150px;
+	height: 150px;
+
+	border: 5px solid #e0a9eb;
+	border-radius: 12px;
+
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
 }
 
 main .home {

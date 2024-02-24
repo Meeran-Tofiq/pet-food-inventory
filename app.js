@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
 
-const mongoDB = require("./util/credentials");
+const mongoDB = process.env.MONGODB_URI;
 
 var indexRouter = require("./routes/index");
 var animalsRouter = require("./routes/animals");

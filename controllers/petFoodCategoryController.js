@@ -72,14 +72,27 @@ exports.pet_food_category_update_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.pet_food_category_update_post = [
+	upload.single("avatar"),
 	body("animal_type", "Animal type must contain at least 3 characters.")
 		.trim()
 		.isLength({ min: 3 })
 		.escape(),
 	asyncHandler(async (req, res, next) => {
 		const errors = validationResult(req);
+
+		let imageUrl;
+		if (req.file) {
+			imageUrl = req.file.path.slice(7);
+		} else {
+			const oldCategory = await PetFoodCategory.findById(
+				req.params.category_id
+			).exec();
+			imageUrl = oldCategory.imageUrl;
+		}
+
 		const category = new PetFoodCategory({
 			animal_type: req.body.animal_type,
+			imageUrl,
 			_id: req.params.category_id,
 		});
 

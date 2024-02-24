@@ -30,4 +30,4 @@ update, or delete, these categories and pet foods, if they so desire.
 
 # Live Preview
 
-Click the following [link]() to access.
+Click the following [link](https://pet-food-inventory.adaptable.app) to preview.

@@ -37,9 +37,11 @@ exports.pet_food_category_create_post = [
 		.escape(),
 	asyncHandler(async (req, res, next) => {
 		const errors = validationResult(req);
+		const imageUrl = req.file.path.slice(6);
+
 		const category = new PetFoodCategory({
 			animal_type: req.body.animal_type,
-			imageUrl: req.file.path.slice(7),
+			imageUrl,
 		});
 
 		if (!errors.isEmpty()) {
@@ -82,7 +84,7 @@ exports.pet_food_category_update_post = [
 
 		let imageUrl;
 		if (req.file) {
-			imageUrl = req.file.path.slice(7);
+			imageUrl = req.file.path.slice(6);
 		} else {
 			const oldCategory = await PetFoodCategory.findById(
 				req.params.category_id

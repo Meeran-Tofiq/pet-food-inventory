@@ -12,7 +12,7 @@ const limiter = RateLimit({
 	max: 20,
 });
 
-const mongoDB = process.env.MONGODB_URI;
+const mongoDB = require("./util/credentials");
 
 var indexRouter = require("./routes/index");
 var animalsRouter = require("./routes/animals");

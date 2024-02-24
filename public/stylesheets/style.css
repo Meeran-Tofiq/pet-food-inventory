@@ -120,7 +120,8 @@ main .with-background {
 	background-size: 100%;
 }
 
-main li .image-container {
+main li .image-container,
+.pet-food-detail-card .image-container {
 	width: 150px;
 	height: 150px;
 
@@ -130,6 +131,12 @@ main li .image-container {
 	overflow: hidden;
 	background-size: cover;
 	background-position: center;
+}
+
+.pet-food-detail-card .image-container {
+	height: 250px;
+	width: 250px;
+	margin-bottom: 1rem;
 }
 
 main .home {
@@ -192,6 +199,9 @@ main .delete-page .delete-card {
 main .pet-food-detail .pet-food-detail-card {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+
+	color: #233bc0;
 }
 
 .form-container form {

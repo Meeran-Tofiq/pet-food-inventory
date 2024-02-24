@@ -8,6 +8,7 @@ block content
         a(href= petFood._id + '/update') Edit 
         a(href= petFood._id + '/delete') Delete 
     div.pet-food-detail-card
+      div.image-container(style=`background-image: url("${petFood.imageUrl}")`)
       span.animal-type= "For animals of type: " + petFood.category.animal_type
       span.price= "Price: $" + petFood.price 
       span.in-stock= "Left in stock: " + petFood.in_stock

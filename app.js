@@ -6,6 +6,11 @@ var logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 const helmet = require("helmet");
+const RateLimit = require("express-rate-limit");
+const limiter = RateLimit({
+	windowMs: 1 * 60 * 1000, // 1 minute
+	max: 20,
+});
 
 const mongoDB = process.env.MONGODB_URI;
 
@@ -27,6 +32,7 @@ app.use(
 		},
 	})
 );
+app.use(limiter);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

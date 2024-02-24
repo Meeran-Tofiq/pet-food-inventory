@@ -5,17 +5,13 @@ const Schema = mongoose.Schema;
 const PetFoodCategory = new Schema(
 	{
 		animal_type: { type: String, required: true },
+		imageUrl: { type: String, required: true },
 	},
 	{
 		virtuals: {
 			url: {
 				get() {
 					return "/animals/" + this._id + "/pet_foods";
-				},
-			},
-			imageUrl: {
-				get() {
-					return `/images/animals/${this.animal_type}.jpg`;
 				},
 			},
 		},

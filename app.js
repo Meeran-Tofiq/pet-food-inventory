@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
+const helmet = require("helmet");
 
 const mongoDB = process.env.MONGODB_URI;
 
@@ -18,11 +19,19 @@ async function main() {
 	await mongoose.connect(mongoDB);
 }
 
+app.use(compression());
+app.use(
+	helmet.contentSecurityPolicy({
+		directives: {
+			"script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+		},
+	})
+);
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-app.use(compression());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

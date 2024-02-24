@@ -114,6 +114,11 @@ main .with-background {
 	background-size: 100%;
 }
 
+main li.image-container {
+	width: 50%;
+	height: 50%;
+}
+
 main .home {
 	display: flex;
 	flex-direction: column;

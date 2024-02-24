@@ -2,6 +2,7 @@ const PetFoodCategory = require("../models/petFoodCategory");
 const PetFoodInstance = require("../models/petFoodInstance");
 const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
+const fs = require("fs/promises");
 
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -138,6 +139,7 @@ exports.pet_food_category_delete_post = asyncHandler(async (req, res, next) => {
 		return;
 	}
 
+	await fs.unlink("public/" + category.imageUrl);
 	await PetFoodCategory.findByIdAndDelete(req.body.category_id).exec();
 	res.redirect("/animals");
 });
